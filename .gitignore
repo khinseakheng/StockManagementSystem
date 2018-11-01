@@ -1,0 +1,10 @@
+*.sqlite
+/node_modules
+/public/vendor
+/public/storage
+/storage/*.key
+/vendor
+/.idea
+/.vscode
+/nbproject
+/.vagrant
