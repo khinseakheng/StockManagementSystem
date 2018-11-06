@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('vendor.backpack.base.welcome');
 });
+Route::get('/api/Category', 'api\CategoryController@index');
+Route::get('/api/Category/{id}', 'api\CategoryController@show');

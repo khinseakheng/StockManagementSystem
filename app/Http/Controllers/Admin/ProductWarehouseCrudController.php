@@ -121,8 +121,6 @@ class ProductWarehouseCrudController extends CrudController
             'name'=>'image',
             'label'=>'Image',
             'type' => 'image',
-           
-            
             'upload' => true,
             'crop' => true, // set to true to allow cropping, false to disable
             'aspect_ratio' => 1,

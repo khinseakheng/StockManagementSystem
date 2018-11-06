@@ -23,3 +23,5 @@ Route::group([
     
     
 }); // this should be the absolute last line of this file
+Route::get('/api/Category', 'Api\CategoryController@index');
+Route::get('/api/Category/{id}', 'Api\CategoryController@show');
