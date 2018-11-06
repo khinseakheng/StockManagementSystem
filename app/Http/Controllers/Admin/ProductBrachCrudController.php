@@ -24,7 +24,7 @@ class ProductBrachCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\ProductBrach');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/product-branch');
-        $this->crud->setEntityNameStrings('productbrach', 'product_braches');
+        $this->crud->setEntityNameStrings('productbrach', 'product braches');
 
         /*
         |--------------------------------------------------------------------------
@@ -50,7 +50,7 @@ class ProductBrachCrudController extends CrudController
             'name'=>'name',
             'label'=>'Name',
             'wrapperAttributes'=>[
-                'class'=>'form-group col-md-12'
+                'class'=>'form-group col-md-4'
             ]
 
         ]);
@@ -58,7 +58,7 @@ class ProductBrachCrudController extends CrudController
             'name'=>'description',
             'label'=>'Description',
             'wrapperAttributes'=>[
-                'class'=>'form-group col-md-12'
+                'class'=>'form-group col-md-4'
             ]
 
         ]);
@@ -66,7 +66,7 @@ class ProductBrachCrudController extends CrudController
             'name'=>'note',
             'label'=>'Note',
             'wrapperAttributes'=>[
-                'class'=>'form-group col-md-12'
+                'class'=>'form-group col-md-4'
             ]
 
         ]);

@@ -16,7 +16,7 @@ class ProductCategory extends Model
     */
 
     protected $table = 'product_categories';
-     protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['name','slug','parent_id'];
@@ -49,6 +49,11 @@ class ProductCategory extends Model
             'warehouse_categories',
             'category_id',
             'warehouse_id'
+        );
+    }
+    public function productinventory(){
+        return $this -> hasMany(
+            'App\Models\Productinventory'
         );
     }
     /*

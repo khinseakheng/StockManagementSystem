@@ -12,7 +12,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>
-      {{ isset($title) ? $title.' :: '.config('backpack.base.project_name').' Admin' : config('backpack.base.project_name').' Admin' }}
+     {{ isset($title) ? $title.' :: '.config('backpack.base.StockManagement').' Admin' : config('backpack.base.StockManagement').' Admin' }}
     </title>
 
     @yield('before_styles')
@@ -67,11 +67,11 @@
 
       <header class="main-header">
         <!-- Logo -->
-        <a href="{{ url('') }}" class="logo">
+        <a href="{{ url('admin/dashboard') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini">{!! config('backpack.base.logo_mini') !!}</span>
+          <span class="logo-mini">SM</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg">{!! config('backpack.base.logo_lg') !!}</span>
+          <span class="logo-lg">Stock Management</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -111,10 +111,10 @@
       <footer class="main-footer">
         @if (config('backpack.base.show_powered_by'))
             <div class="pull-right hidden-xs">
-              {{ trans('backpack::base.powered_by') }} <a target="_blank" href="http://backpackforlaravel.com?ref=panel_footer_link">Backpack for Laravel</a>
+              {{ trans('backpack::base.powered_by') }} <a target="_blank" href="http://backpackforlaravel.com?ref=panel_footer_link">Camsoft Solution</a>
             </div>
         @endif
-        {{ trans('backpack::base.handcrafted_by') }} <a target="_blank" href="{{ config('backpack.base.developer_link') }}">{{ config('backpack.base.developer_name') }}</a>.
+        {{ trans('backpack::base.handcrafted_by') }} <a target="_blank" href="{{ config('backpack.base.developer_link') }}">Khin seakheng</a>.
       </footer>
     </div>
     <!-- ./wrapper -->

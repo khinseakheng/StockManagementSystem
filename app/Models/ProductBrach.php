@@ -16,7 +16,7 @@ class ProductBrach extends Model
     */
 
     protected $table = 'product_branchs';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = ['name','description','note'];

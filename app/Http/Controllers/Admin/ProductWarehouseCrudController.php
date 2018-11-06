@@ -23,8 +23,8 @@ class ProductWarehouseCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\ProductWarehouse');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/productwarehouse');
-        $this->crud->setEntityNameStrings('productwarehouse', 'product_warehouses');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/product-warehouse');
+        $this->crud->setEntityNameStrings('productwarehouse', 'product warehouses');
         /*
         |--------------------------------------------------------------------------
         | CrudPanel Configuration
@@ -56,7 +56,7 @@ class ProductWarehouseCrudController extends CrudController
 
         $this->crud->addColumn([
             'label'=>'Category',
-        'type'=>'select',
+            'type'=>'select',
            'name'=>'categories',//categories ជាឈ្មោះfuntionដែលមានក្នុង Modelsរបស់warehouse ខុសពីុធម្មតា
            'entity'=>'categories',
            'attribute'=>'name',//name is category name from product_categories
@@ -73,21 +73,33 @@ class ProductWarehouseCrudController extends CrudController
         $this->crud->addField([
             'name'=>'name',
             'label'=>'Name',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
         $this->crud->addField([
             'name'=>'phone',
             'label'=>'Phone',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
            
         ]);
         $this->crud->addField([
             'name'=>'address',
             'label'=>'Address',
+            'type'=>'address',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
             
         ]);
         $this->crud->addField([
             'name'=>'email',
             'label'=>'Email',
-           
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
        
 
@@ -101,16 +113,20 @@ class ProductWarehouseCrudController extends CrudController
             'placeholder'=>"",
             'minimum_input_length'=>0,
             'pivot'=> true,
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
         $this->crud->addField([
             'name'=>'image',
             'label'=>'Image',
             'type' => 'image',
+           
             
             'upload' => true,
             'crop' => true, // set to true to allow cropping, false to disable
             'aspect_ratio' => 1,
-               
+          
         ]); 
         $this->crud->setFromDb();
 

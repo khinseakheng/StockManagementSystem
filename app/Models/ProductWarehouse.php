@@ -19,7 +19,7 @@ class ProductWarehouse extends Model
     //protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name','address','email','image'];
+    protected $fillable = ['name','address','phone','email','image'];
     // protected $hidden = [];
     // protected $dates = [];
 

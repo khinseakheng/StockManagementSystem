@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class ProductSpec extends Model
+class ProductInventory extends Model
 {
     use CrudTrait;
 
@@ -15,11 +15,11 @@ class ProductSpec extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'product_specs';
+    protected $table = 'product_inventories';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name','price','cost','image','status'];
+    protected $fillable = ['name','SKU','UPC','code_symbol','status','initail_qty_on_hand','recorder_point','as_of_date'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -27,18 +27,13 @@ class ProductSpec extends Model
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
-
-
     */
-    public function categories(){
-        return $this -> belongsToMany(
+    public function category(){
+        return $this -> belongsTo(
             'App\Models\ProductCategory',
-            'spec_categories',
-            'spec_id',
             'category_id'
         );
     }
-
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

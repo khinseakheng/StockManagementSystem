@@ -24,7 +24,7 @@ class ProductSpecCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\ProductSpec');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/product-spec');
-        $this->crud->setEntityNameStrings('product-spec', 'product_specs');
+        $this->crud->setEntityNameStrings('product-spec', 'product speces');
 
         /*
         |--------------------------------------------------------------------------
@@ -71,27 +71,42 @@ class ProductSpecCrudController extends CrudController
         $this->crud->addField([
             'name'=>'name',
             'label'=>'Name',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
         $this->crud->addField([
             'name'=>'price',
             'label'=>'Price',
             'type'=>'enum',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
         $this->crud->addField([
             'name'=>'cost',
             'label'=>'Cost',
             'type'=>'enum',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
         $this->crud->addField([
             'name'=>'image',
             'label'=>'Image',
             'type'=>'enum',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
 
         ]);
         $this->crud->addField([
             'name'=>'status',
             'label'=>'Status',
             'type'=>'enum',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
 
         $this->crud->addField([
@@ -104,6 +119,9 @@ class ProductSpecCrudController extends CrudController
             'placeholder'=>"",
             'minimum_input_length'=>0,
             'pivot'=> true,
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
 
 

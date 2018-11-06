@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class ProductSpec extends Model
+class Currency extends Model
 {
     use CrudTrait;
 
@@ -15,11 +15,11 @@ class ProductSpec extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'product_specs';
+    protected $table = 'currencies';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ['name','price','cost','image','status'];
+    protected $fillable = ['currency_code','currency_symbol','currency_symbol'];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -27,17 +27,7 @@ class ProductSpec extends Model
     |--------------------------------------------------------------------------
     | FUNCTIONS
     |--------------------------------------------------------------------------
-
-
     */
-    public function categories(){
-        return $this -> belongsToMany(
-            'App\Models\ProductCategory',
-            'spec_categories',
-            'spec_id',
-            'category_id'
-        );
-    }
 
     /*
     |--------------------------------------------------------------------------

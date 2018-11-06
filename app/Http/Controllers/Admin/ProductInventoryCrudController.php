@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ProductUnitRequest as StoreRequest;
-use App\Http\Requests\ProductUnitRequest as UpdateRequest;
+use App\Http\Requests\ProductInventoryRequest as StoreRequest;
+use App\Http\Requests\ProductInventoryRequest as UpdateRequest;
 
 /**
- * Class ProductUnitCrudController
+ * Class ProductInventoryCrudController
  * @package App\Http\Controllers\Admin
  * @property-read CrudPanel $crud
  */
-class ProductUnitCrudController extends CrudController
+class ProductInventoryCrudController extends CrudController
 {
     public function setup()
     {
@@ -22,9 +22,9 @@ class ProductUnitCrudController extends CrudController
         | CrudPanel Basic Information
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\ProductUnit');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/product-unit');
-        $this->crud->setEntityNameStrings('productunit', 'product units');
+        $this->crud->setModel('App\Models\ProductInventory');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/product-inventory');
+        $this->crud->setEntityNameStrings('productinventory', 'product inventories');
 
         /*
         |--------------------------------------------------------------------------
@@ -35,38 +35,74 @@ class ProductUnitCrudController extends CrudController
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->addColumn([
             'name'=>'name',
-            'label'=>'Name',
+            'label'=>'name'
+        ]);
+        $this->crud->addColumn([
+            'name'=>'SKU',
+            'label'=>'SKU'
+        ]);
+        $this->crud->addColumn([
+            'name'=>'UPC',
+            'label'=>'UPC'
+        ]);
+        $this->crud->addColumn([
+            'name'=>'code_symbol',
+            'label'=>'Code_Symbol',
+            'type'=>'enum'
         ]);
 
         $this->crud->addColumn([
-            'name'=>'operator',
-            'label'=>'Operator',
-        ]);
-        $this->crud->addColumn([
-            'name'=>'operator_value',
-            'label'=>'Operator_Value',
-        ]);
-        $this->crud->addColumn([
-            'name'=>'base_unit',
-            'label'=>'Base_Unit',
-            'type'=>'select',
-            'entity'=>'parent',  //function
-            'attribute'=>'name',
-            'model'=>'App\\Models\\ProductUnit',
+            'name'=>'status',
+            'label'=>'Status',
+            'type'=>'enum'
         ]);
 
-        //add field
+        $this->crud->addColumn([
+            'name'=>'initail_qty_on_hand',
+            'label'=>'initail_qty_on_hand',
+        ]);
+        $this->crud->addColumn([
+            'name'=>'recorder_point',
+            'label'=>'recorder_point',
+        ]);
+
+        $this->crud->addColumn([
+            'name'=>'as_of_date',
+            'label'=>'as_of_date',
+        ]);
+
+
+
+    
+
         $this->crud->addField([
             'name'=>'name',
-            'label'=>'Name',
+            'label'=>'name',
             'wrapperAttributes'=>[
                 'class'=>'form-group col-md-4'
             ]
-        ]);
 
+        ]);
         $this->crud->addField([
-            'name'=>'operator',
-            'label'=>'Operator',
+            'name'=>'SKU',
+            'label'=>'SKU',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
+
+        ]);
+        $this->crud->addField([
+            'name'=>'UPC',
+            'label'=>'UPC',
+            
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
+
+        ]);
+        $this->crud->addField([
+            'name'=>'code_symbol',
+            'label'=>'Code_Symbol',
             'type'=>'enum',
             'wrapperAttributes'=>[
                 'class'=>'form-group col-md-4'
@@ -74,23 +110,39 @@ class ProductUnitCrudController extends CrudController
 
         ]);
         $this->crud->addField([
-            'name'=>'operator_value',
-            'label'=>'Operator_Value',
+            'name'=>'status',
+            'label'=>'Status',
+            'type'=>'enum',
             'wrapperAttributes'=>[
                 'class'=>'form-group col-md-4'
             ]
-        ]);
 
+        ]);
         $this->crud->addField([
-            'name'=>'base_unit',
-            'label'=>'Base_Unit',
-            'type'=>'number',
-            'entity'=>'parent',//function
-            'attribute'=>'name',
-            'model'=>'App\\Models\\ProductUnit',
+            'name'=>'initail_qty_on_hand',
+            'label'=>'initail_qty_on_hand',
             'wrapperAttributes'=>[
                 'class'=>'form-group col-md-4'
             ]
+
+        ]);
+       
+        $this->crud->addField([
+            'name'=>'recorder_point',
+            'label'=>'recorder_point',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
+
+        ]);
+        $this->crud->addField([
+            'name'=>'as_of_date',
+            'label'=>'as_of_date',
+            'type'=>'date',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
+
         ]);
 
 
@@ -98,7 +150,7 @@ class ProductUnitCrudController extends CrudController
 
         $this->crud->setFromDb();
 
-        // add asterisk for fields that are required in ProductUnitRequest
+        // add asterisk for fields that are required in ProductInventoryRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');
     }

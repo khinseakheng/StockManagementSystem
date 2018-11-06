@@ -24,7 +24,7 @@ class ProductCategoryCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\ProductCategory');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/product-category');
-        $this->crud->setEntityNameStrings('productcategory', 'product_categories');
+        $this->crud->setEntityNameStrings('productcategory', 'product categories');
 
         /*
         |--------------------------------------------------------------------------
@@ -56,11 +56,17 @@ class ProductCategoryCrudController extends CrudController
         $this->crud->addField([
             'name'=>'name',
             'label'=>'Name',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
 
         $this->crud->addField([
             'name'=>'slug',
             'label'=>'Slug',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
 
         $this->crud->addField([
@@ -70,6 +76,9 @@ class ProductCategoryCrudController extends CrudController
             'entity'=>'parent',//function
             'attribute'=>'name',
             'model'=>'App\\Models\\ProductCategory',
+            'wrapperAttributes'=>[
+                'class'=>'form-group col-md-4'
+            ]
         ]);
 
 

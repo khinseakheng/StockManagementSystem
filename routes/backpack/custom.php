@@ -16,5 +16,10 @@ Route::group([
     CRUD::resource('/product-category','ProductCategoryCrudController');
     CRUD::resource('/product-group','ProductGroupCrudController');
     CRUD::resource('/product-unit','ProductUnitCrudController');
-    CRUD::resource('/productwarehouse','ProductWarehouseCrudController');
+    CRUD::resource('/product-warehouse','ProductWarehouseCrudController');
+    CRUD::resource('/currency','CurrencyCrudController');
+    CRUD::resource('/tax-group','TaxGroupCrudController');
+    CRUD::resource('/product-inventory','ProductInventoryCrudController');
+    
+    
 }); // this should be the absolute last line of this file
